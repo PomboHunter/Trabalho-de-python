@@ -135,9 +135,7 @@ def criaconta(clientedef):
                 print('digite uma opção valida')
             
     Conta.criar_conta(numerodoclientedef)
-    
-        
-    
+
 clientes = {"name":[],"cpf":[],"numerodaconta":[]} # Dicionario onde são armazenados todos clientes.
 contasprincipal = {"numero":[0],"saldo":[0],"tipo":[0]}
 while True:
