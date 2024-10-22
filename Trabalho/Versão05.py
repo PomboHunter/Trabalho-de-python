@@ -85,8 +85,6 @@ class Conta:
         contacriaconta = (numeroConta, 0, tipoConta2)
         return contacriaconta
 
-
-
 def inicio():
     ''' 
         Função: Esse processo é responsável para proporcionar uma breve introdução para o usuário.
@@ -98,6 +96,7 @@ def inicio():
     print('++++++++++ AO +++++++++++')
     print('+++++++++ BANCO +++++++++')
     print('+++++++++#######+++++++++')
+    
 def validar_cpf(cpf):    # Verifica se o CPF é valido
     if len(cpf) != 11:
         return False
@@ -106,23 +105,29 @@ def validar_cpf(cpf):    # Verifica se o CPF é valido
     soma = sum(int(cpf[i]) * (11 - i) for i in range(10))
     segundo_digito = (soma * 10 % 11) % 10
     return cpf[-2:] == f"{primeiro_digito}{segundo_digito}"
+    
 def criacliente():
     clientedef = Cliente.criar_cliente()
     clientes["name"].append(clientedef.nome)
     clientes["cpf"].append(clientedef.cpf)
     clientes["numerodaconta"].append(clientedef.contas)
     return 
+    
 def criaconta(clientedef):
     numerodoclientedef = -1
     valido = False
+    
     while valido == False:
         cpfdef = input('digite o cpf do cliente')
         valido = validar_cpf(cpfdef)
+        
         if valido == False:
             print('digite um cpf valido')
+            
     for i in range(len(clientedef['cpf'])):
         if cpfdef == clientedef['cpf'][i]:
             numerodoclientedef = i
+            
     if numerodoclientedef == -1:
         while True:
             a = int(input("cpf não encontrado, deseja criar um cliente??\n 1 - sim\n 2 - não"))
@@ -132,8 +137,7 @@ def criaconta(clientedef):
             elif a == 2:
                 return
             else:
-                print('digite uma opção valida')
-            
+                print('digite uma opção valida')  
     Conta.criar_conta(numerodoclientedef)
 
 clientes = {"name":[],"cpf":[],"numerodaconta":[]} # Dicionario onde são armazenados todos clientes.
@@ -143,8 +147,8 @@ while True:
     try: #Função: While responsável para repetir a execução do código até que o programa se encerre.
         oqueFazer = int(input('\nO que você deseja fazer? \n1- Criar cliente\n2- Criar conta_ Imcompleto\n3- Excluir cliente_ Imcompleto\n4- Excluir conta _ Imcompleto\n5- Exibir cliente_ Imcompleto\n6- Exibir conta _ Imcompleto\n7- Encerrar aplicação\n'))
         if oqueFazer == 1: #Função: Criar um objeto da classe Cliente.
-            criacliente()
+            criacliente()  
         elif oqueFazer == 2: #busca o cliente e cria a conta
-            criaconta(clientes)
+            criaconta(clientes)    
     except ValueError:
         print('Por favor, insira um número válido.')        
