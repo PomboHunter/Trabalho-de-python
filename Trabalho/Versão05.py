@@ -149,6 +149,9 @@ while True:
         if oqueFazer == 1: #Função: Criar um objeto da classe Cliente.
             criacliente()  
         elif oqueFazer == 2: #busca o cliente e cria a conta
-            criaconta(clientes)    
+            criaconta(clientes)  
+        elif oqueFazer == 7:
+            print('Fim do Programa')
+            break
     except ValueError:
         print('Por favor, insira um número válido.')        
